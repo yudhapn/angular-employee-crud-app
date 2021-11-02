@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Delete Employee</h1>
+<div mat-dialog-content>
+  <p>
+    Are you sure want to delete {{ data.user.firstName }}
+    {{ data.user.lastName }}?
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="deletedData" cdkFocusInitial>
+    Delete
+  </button>
+  <button color="warn" mat-raised-button (click)="onNoClick()">Cancel</button>
+</div>

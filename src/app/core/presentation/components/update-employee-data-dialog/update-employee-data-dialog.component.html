@@ -1,0 +1,98 @@
+<h1 mat-dialog-title>Update Employee</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="inputEmployeeData">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="title"
+        placeholder="CEO"
+        [ngModel]="data.user.title"
+      />
+      <mat-error *ngIf="title && title.hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="firstName"
+        placeholder="John"
+        [ngModel]="data.user.firstName"
+      />
+      <mat-error *ngIf="firstName && firstName.hasError('required')">
+        First Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="lastName"
+        placeholder="Goldberg"
+        [ngModel]="data.user.lastName"
+      />
+      <mat-error *ngIf="lastName && lastName.hasError('required')">
+        Last Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        placeholder="john@example.com"
+        [ngModel]="data.user.email"
+      />
+      <mat-error
+        *ngIf="email && email.hasError('email') && !email.hasError('required')"
+      >
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="email && email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role" [ngModel]="data.user.role" name="role">
+        <mat-option *ngFor="let role of roles" [value]="role">
+          {{ role }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="role && !role.hasError('required')">
+        Please enter a valid Role. Valid: Admin or User
+      </mat-error>
+      <mat-error *ngIf="role && role.hasError('required')">
+        Role is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="role && !role.hasError('required')">
+        Please enter a valid Role. Valid: Admin or User
+      </mat-error>
+      <mat-error *ngIf="role && role.hasError('required')">
+        Role is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <div mat-dialog-actions>
+    <button
+      [disabled]="isAbleSubmit"
+      mat-button
+      [mat-dialog-close]="updatedData"
+      cdkFocusInitial
+    >
+      Update
+    </button>
+    <button color="warn" mat-raised-button (click)="onNoClick()">Cancel</button>
+  </div>
+</div>

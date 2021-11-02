@@ -1,0 +1,30 @@
+table {
+  width: 100%;
+}
+
+.table-container {
+  margin: 18px;
+  justify-content: center;
+}
+
+.top-table-container {
+  margin-top: 18px;
+  margin-left: 18px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.red-icon {
+  color: red;
+}
+
+th.mat-header-cell.header-action {
+  text-align: center !important;
+}
+
+td.mat-cell.cell-action {
+  text-align: center !important;
+}
